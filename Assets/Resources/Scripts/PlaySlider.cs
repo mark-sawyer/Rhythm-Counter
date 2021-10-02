@@ -20,6 +20,7 @@ public class PlaySlider : MonoBehaviour {
         transform.position += (Time.deltaTime * speed);
         if (transform.localPosition.x >= Voice.getLength()) {
             transform.localPosition = new Vector3();
+            voiceFill = null;
         }
 
         RaycastHit2D ray = Physics2D.Raycast(transform.position, Vector2.zero);
