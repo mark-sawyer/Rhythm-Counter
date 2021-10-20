@@ -37,14 +37,14 @@ public class Ghost : MonoBehaviour {
     }
 
     private void mouseReleased() {
-        if (addBox != null && addBox.hasSpace(size)) {
+        if (addBox != null) {
             if (!isTriplet) {
-                addBox.addToVoice(size, isNote);
+                if (addBox.hasSpace(size)) {
+                    addBox.addToVoice(size, isNote);
+                }
             }
             else {
-                addBox.addToVoice(174760f / 65536f, isNote);
-                addBox.addToVoice(174760f / 65536f, isNote);
-                addBox.addToVoice(174768f / 65536f, isNote);
+                addBox.addTripletToVoice(isNote);
             }
         }
         Destroy(gameObject);

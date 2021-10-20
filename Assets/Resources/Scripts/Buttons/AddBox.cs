@@ -9,6 +9,7 @@ public class AddBox : MonoBehaviour, PlayableChecker, Disableable {
     private GameObject resetButton;
     private GameObject offButton;
     private GameObject voiceRectangle;
+    private TripletAdder tripletAdder;
 
     private void Start() {
         totalSpace = TimeSignature.getTotalSpace();
@@ -32,12 +33,15 @@ public class AddBox : MonoBehaviour, PlayableChecker, Disableable {
 
         GameEvents.playStarted.AddListener(disableOnPlay);
         GameEvents.playStopped.AddListener(enableOnStop);
+
+        tripletAdder = new TripletAdder();
     }
 
     private void reset() {
         totalSpace = TimeSignature.getTotalSpace();
         availableSpace = totalSpace;
         voiceRectangle.GetComponent<Voice>().removeFills();
+        tripletAdder.resetThirds();
     }
 
     public bool hasSpace(float requestedSpace) {
@@ -48,6 +52,14 @@ public class AddBox : MonoBehaviour, PlayableChecker, Disableable {
         availableSpace -= requestedSpace;
         voiceRectangle.GetComponent<Voice>().addFill(availableSpace, requestedSpace, isNote);
         VoicesFullChecker.checkIfVoicesAreFull();
+    }
+
+    public void addTripletToVoice(bool isNote) {
+        float size = tripletAdder.getSize();
+        if (hasSpace(size)) {
+            addToVoice(size, isNote);
+            tripletAdder.addThird();
+        }
     }
 
     public void setRemoveable(bool b) {
