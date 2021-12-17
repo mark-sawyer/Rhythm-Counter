@@ -152,7 +152,7 @@ public class VoiceNoteFill : VoiceFill, RightClickable, Disableable {
         transform.localScale = new Vector3(xScale, 1, 1);
 
         float xPos = (totalSpace - (availableSpace + requestedSpace)) * unit;
-        transform.localPosition = new Vector3(xPos, 0, 0);
+        transform.localPosition = new Vector3(xPos, 0, -1);
 
         addBorders();
     }

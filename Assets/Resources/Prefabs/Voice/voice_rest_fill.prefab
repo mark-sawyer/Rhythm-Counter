@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 183077226704431955}
   - component: {fileID: -3740771162670580832}
   - component: {fileID: 757274062140943207}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: voice_rest_fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}

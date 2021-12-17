@@ -23,7 +23,7 @@ public class PlaySlider : MonoBehaviour {
             voiceFill = null;
         }
 
-        RaycastHit2D ray = Physics2D.Raycast(transform.position, Vector2.zero);
+        RaycastHit2D ray = Physics2D.Raycast(transform.position, Vector2.zero, 0f, LayerMask.GetMask("voice_fill"));
         GameObject voiceFillOver = ray.collider.gameObject;
         if (voiceFill != voiceFillOver) {
             voiceFill = voiceFillOver;

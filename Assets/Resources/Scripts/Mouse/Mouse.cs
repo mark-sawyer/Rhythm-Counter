@@ -54,6 +54,4 @@ public class Mouse : MonoBehaviour {
             GameEvents.mouseUp[i].Invoke();
         }
     }
-
-
 }

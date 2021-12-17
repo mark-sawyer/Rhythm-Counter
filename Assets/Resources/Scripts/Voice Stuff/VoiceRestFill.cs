@@ -21,7 +21,7 @@ public class VoiceRestFill : VoiceFill {
         }
 
         transform.localScale = new Vector3(xScale, 1, 1);
-        transform.localPosition = new Vector3(xPos, 0, 0);
+        transform.localPosition = new Vector3(xPos, 0, -1);
 
         foreach (GameObject sibling in leftSiblings) {
             if (sibling != gameObject) {
